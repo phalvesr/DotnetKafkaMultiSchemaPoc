@@ -3,11 +3,11 @@ using Avro.Specific;
 
 namespace KafkaMultiSchemaPoc.Deserializers;
 
-public class TopicDataParent<T0, T1> : ISpecificRecord
+public class TopicDataParent<T0, T1>
 {
 
     private int dataType = -1;
-    
+
     public T0 DataTypeOne { get; }
     public T1 DataTypeTwo { get; }
 
@@ -16,7 +16,7 @@ public class TopicDataParent<T0, T1> : ISpecificRecord
         this.dataType = dataType;
         DataTypeOne = dataTypeOne;
         DataTypeTwo = dataTypeTwo;
-        
+
         if ((dataType != 0 && dataType != 1))
         {
             throw new ArgumentException(
@@ -28,7 +28,7 @@ public class TopicDataParent<T0, T1> : ISpecificRecord
     {
         return dataType == 0;
     }
-    
+
     public bool IsT1()
     {
         return dataType == 1;
@@ -45,16 +45,4 @@ public class TopicDataParent<T0, T1> : ISpecificRecord
             onT1?.Invoke(DataTypeTwo);
         }
     }
-
-    public object Get(int fieldPos)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Put(int fieldPos, object fieldValue)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Schema Schema { get; }
 }
