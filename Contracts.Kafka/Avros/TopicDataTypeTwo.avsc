@@ -1,0 +1,9 @@
+{
+  "type": "record",
+  "name": "TopicDataTypeTwo",
+  "namespace": "br.com.multi_schema.poc",
+  "fields": [
+    { "name": "id", "type": "bytes" },
+    { "name": "data_type", "type": "string" }
+  ]
+}
